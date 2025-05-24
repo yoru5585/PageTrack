@@ -1,8 +1,8 @@
 
-function Settings() {
+function SettingsPage() {
   return(
     <p>ここは設定です。</p>
   );
 }
 
-export default Settings;
+export default SettingsPage;

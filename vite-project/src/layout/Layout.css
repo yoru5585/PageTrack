@@ -1,6 +1,6 @@
 .layout-container {
-  padding-left: 240px; /* サイドバーの幅だけ余白を取る */
-  height: 100vh;
+  position: relative;
+  margin: auto;
   font-family: sans-serif;
 }
 
@@ -11,7 +11,8 @@
   left: 0;
   width: 240px;
   height: 100vh;
-  background-color: #1e293b; /* ダークグレー */
+  background-color: #1e293b;
+  /* ダークグレー */
   color: white;
   padding: 24px;
   box-sizing: border-box;
@@ -78,15 +79,8 @@
 }
 
 .nav-link:hover {
-  color: #818cf8; /* インディゴ色 */
-}
-
-/* サイドバーを避けて右側に表示 */
-.main-content {
-  padding: 24px;
-  overflow-y: auto;
-  height: 100vh;
-  background-color: #f1f5f9; /* 薄いグレー */
+  color: #818cf8;
+  /* インディゴ色 */
 }
 
 /* 新たに内部を分ける */
@@ -103,4 +97,13 @@
   color: #94a3b8;
   padding-top: 20px;
   border-top: 1px solid #334155;
+}
+
+/* メイン */
+.main-content {
+  margin-top: 60px;
+  padding: 24px;
+  background-color: #f1f5f9; /* スレートグレー（明） */
+  border-radius: 12px; /* 角丸があると影が綺麗に見えます */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* 柔らかい影 */
 }

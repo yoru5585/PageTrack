@@ -2,27 +2,29 @@ import { Outlet, NavLink } from "react-router-dom";
 import { Home, Search, BarChart2, Settings, X, Menu } from "lucide-react";
 import "./Layout.css";
 import { useState } from "react";
+import { ROUTES, LABELS } from "../constants";
 
 function Layout() {
 	const [sidebarOpen, setSidebarOpen] = useState(true);
 
 	const navItems = [
-		{ label: " ホーム", icon: <Home size={20} />, to: "/" },
-		{ label: " 本一覧", icon: <Search size={20} />, to: "/books" },
-		// { label: "統計", icon: <BarChart2 size={20} />, to: "/stats" },
-		{ label: " 設定", icon: <Settings size={20} />, to: "/settings" },
+		{ label: LABELS.HOME, icon: <Home size={20} />, to: ROUTES.HOME },
+		{ label: LABELS.BOOKS, icon: <Search size={20} />, to: ROUTES.BOOKS },
+		{ label: LABELS.STATS, icon: <BarChart2 size={20} />, to: ROUTES.STATS },
+		{ label: LABELS.SETTINGS, icon: <Settings size={20} />, to: ROUTES.SETTINGS },
 	];
+
 	return (
 		<div className="layout-container">
 			{/* 表示ボタン */}
-			<button className="open-btn" onClick={() => {setSidebarOpen(true)}}><Menu size={20} /></button>
+			<button className="open-btn" onClick={() => { setSidebarOpen(true) }}><Menu size={20} /></button>
 			{/* サイドバー */}
 			<aside className={`sidebar ${sidebarOpen ? "open" : "closed"}`}>
 				{/* 非表示ボタン */}
-				<button className="close-btn" onClick={() => {setSidebarOpen(false)}}><X size={20} /></button>
+				<button className="close-btn" onClick={() => { setSidebarOpen(false) }}><X size={20} /></button>
 				{/* サイドバーのインナー */}
 				<div className="sidebar-inner">
-					<h1 className="sidebar-title">PageTrack</h1>
+					<h1 className="sidebar-title">{LABELS.MENU_TITLE}</h1>
 					<nav className="nav-links">
 						{navItems.map((item) => (
 							<NavLink
