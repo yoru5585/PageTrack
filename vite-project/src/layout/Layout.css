@@ -1,0 +1,106 @@
+.layout-container {
+  padding-left: 240px; /* サイドバーの幅だけ余白を取る */
+  height: 100vh;
+  font-family: sans-serif;
+}
+
+/* サイドバーを画面に固定 */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 240px;
+  height: 100vh;
+  background-color: #1e293b; /* ダークグレー */
+  color: white;
+  padding: 24px;
+  box-sizing: border-box;
+  transition: transform 0.3s ease;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+}
+
+/* アニメーション：閉じると左にスライド */
+.sidebar.closed {
+  transform: translateX(-100%);
+}
+
+/* 開いているとき */
+.sidebar.open {
+  transform: translateX(0);
+}
+
+.sidebar-title {
+  display: inline-block;
+  font-size: 20px;
+  margin-bottom: 32px;
+}
+
+.close-btn {
+  position: absolute;
+  padding: 10px;
+  top: 10px;
+  right: 10px;
+  background: none;
+  color: white;
+  border: none;
+}
+
+/* メニューを再表示するボタン */
+.open-btn {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  background-color: #1e293b;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 4px;
+  z-index: 999;
+}
+
+.nav-links {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.nav-link {
+  margin-left: 0;
+  margin-right: auto;
+  color: #d1d5db;
+  text-decoration: none;
+  font-size: 16px;
+  transition: color 0.2s ease;
+}
+
+.nav-link:hover {
+  color: #818cf8; /* インディゴ色 */
+}
+
+/* サイドバーを避けて右側に表示 */
+.main-content {
+  padding: 24px;
+  overflow-y: auto;
+  height: 100vh;
+  background-color: #f1f5f9; /* 薄いグレー */
+}
+
+/* 新たに内部を分ける */
+.sidebar-inner {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+/* フッターを一番下に押しやる */
+.sidebar-footer {
+  margin-top: auto;
+  font-size: 14px;
+  color: #94a3b8;
+  padding-top: 20px;
+  border-top: 1px solid #334155;
+}
