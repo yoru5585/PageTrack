@@ -1,0 +1,53 @@
+import type { User } from "firebase/auth";
+import { collection, getDocs, onSnapshot } from "firebase/firestore";
+import { useEffect, useState } from "react";
+import type { Book } from "../../../../constants/Types";
+import { db } from "../../../../firebase";
+
+export const useBooks = (user: User | null) => {
+  const [books, setBooks] = useState<Book[]>([]);
+
+  useEffect(() => {
+    if (!user) return;
+
+    const booksRef = collection(db, "users", user.uid, "books");
+
+    const unsubscribe = onSnapshot(booksRef, (snapshot) => {
+      const newBooks: Book[] = snapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      })) as Book[];
+      setBooks(newBooks);
+    });
+
+    return () => unsubscribe(); // クリーンアップ
+  }, [user]);
+
+  return books;
+};
+
+export const fetchBooksOnce = async (user: User | null): Promise<Book[]> => {
+  if (!user) return [];
+
+  const booksRef = collection(db, "users", user.uid, "books");
+  const snapshot = await getDocs(booksRef);
+
+  return snapshot.docs.map((doc) => ({
+    id: doc.id,
+    ...doc.data(),
+  })) as Book[];
+};
+
+export const fetchBooksByTitle = async (
+  user: User | null,
+  title: string
+): Promise<Book[]> => {
+  if (!user || !title) return [];
+
+  const allBooks = await fetchBooksOnce(user);
+  const filtered = allBooks.filter((book) =>
+    book.title.includes(title)
+  );
+
+  return filtered;
+};

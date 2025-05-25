@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./styles/Home-page.css";
+import "./sidebar-styles/Home-page.css";
 
 function HomePage() {
   const [totalBooksPoint, setTotalBooksPoint] = useState(0);
