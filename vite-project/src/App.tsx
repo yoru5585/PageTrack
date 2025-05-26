@@ -1,10 +1,10 @@
 import './App.css'
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import Layout from "./layout/Layout";
-import HomePage from "./pages/sidebar-pages/Home-page.tsx";
-import BooksPage from './pages/sidebar-pages/Books-page.tsx';
-import SettingsPage from './pages/sidebar-pages/Settings-page.tsx';
-import StatsPage from './pages/sidebar-pages/Stats-page.tsx';
+import Layout from "./layout/layrout.tsx";
+import HomePage from "./pages/sidebar-pages/home-page.tsx";
+import BooksPage from './pages/sidebar-pages/books-page.tsx';
+import SettingsPage from './pages/sidebar-pages/settings-page.tsx';
+import StatsPage from './pages/sidebar-pages/stats-page.tsx';
 import LoginPage from './pages/auth-pages/Login-page.tsx';
 import SignUpPage from './pages/auth-pages/Sign-up-page.tsx';
 import { ROUTES} from "./constants/Index.ts";

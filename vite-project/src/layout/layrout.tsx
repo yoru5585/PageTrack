@@ -1,8 +1,8 @@
 import { Outlet, NavLink } from "react-router-dom";
 import { Home, Search, BarChart2, Settings, X, Menu } from "lucide-react";
-import "./Layout.css";
+import "./layout.css";
 import { useState } from "react";
-import { ROUTES, LABELS } from "../constants/Index.ts";
+import { ROUTES, LABELS } from "../constants/index.ts";
 
 function Layout() {
 	const [sidebarOpen, setSidebarOpen] = useState(true);
