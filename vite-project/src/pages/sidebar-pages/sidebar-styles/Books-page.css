@@ -4,7 +4,7 @@
   gap: 16px;
   padding: 16px;
 
-  max-height: 80vh; /* 必要に応じて調整 */
+  max-height: 50vh; /* 必要に応じて調整 */
   overflow-y: auto;
   scroll-behavior: smooth;
 }
@@ -13,8 +13,24 @@
   background-color: #f1f5f9;
   border: 1px solid #cbd5e1;
   border-radius: 12px;
-  padding: 16px;
+  padding: 4px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+  transition: border 0.2s ease;
+  width: 400px;
+  height: 100px;
+  margin: 0 auto;
+}
+
+.book-card h2,
+.book-card p {
+  padding-top: 8px;
+  margin: 0;
+  user-select: none;
+}
+
+.book-card:hover {
+  border: 1px solid #818cf8;
 }
 
 .book-title {
@@ -28,3 +44,4 @@
   font-size: 14px;
   color: #475569;
 }
+

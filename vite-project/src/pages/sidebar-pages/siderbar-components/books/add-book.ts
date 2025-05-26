@@ -8,6 +8,7 @@ export const addBookWithAutoId = async (bookData: Book, userId: string) => {
   const booksCollectionRef = collection(db, "users", userId, "books");
   const newDocRef = await addDoc(booksCollectionRef, {
     title: bookData.title,
+    pagesRead: bookData.pagesRead,
     totalPages: bookData.totalPages,
     createdAt: new Date(),
   });

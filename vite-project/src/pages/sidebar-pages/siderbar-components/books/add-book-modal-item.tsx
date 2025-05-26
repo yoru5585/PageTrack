@@ -12,7 +12,7 @@ function AddBookModalItem({ onClose }: Props) {
   const [totalPages, setTotalPages] = useState("");
 
   const AddBook = async () => {
-    if (title == "" || totalPages == "") {
+    if (title == "" || totalPages == "" || isNaN(parseInt(totalPages))) {
       alert("入力内容を確認してください。");
       return;
     }
