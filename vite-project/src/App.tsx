@@ -5,10 +5,10 @@ import LoginPage from './pages/auth-pages/Login-page.tsx';
 import SignUpPage from './pages/auth-pages/Sign-up-page.tsx';
 import { ROUTES} from "./constants/index.ts";
 import { useUser } from './constants/User-context.tsx';
-import HomePage from './pages/sidebar-pages/Home-page.tsx';
-import StatsPage from './pages/sidebar-pages/Stats-page.tsx';
-import BooksPage from './pages/sidebar-pages/Books-page.tsx';
-import SettingsPage from './pages/sidebar-pages/Settings-page.tsx';
+import HomePage from './pages/sidebar-pages/home-page.tsx';
+import StatsPage from './pages/sidebar-pages/stats-page.tsx';
+import BooksPage from './pages/sidebar-pages/books-page.tsx';
+import SettingsPage from './pages/sidebar-pages/settings-page.tsx';
 
 function App() {
   const { user, loading } = useUser();

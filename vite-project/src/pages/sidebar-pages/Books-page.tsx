@@ -8,7 +8,7 @@ import {
   fetchBooksByTitle,
   useBooks,
 } from "./siderbar-components/books/fetch-books";
-import Modal from "./siderbar-components/modal/Modal-generater";
+import Modal from "./siderbar-components/modal/modal-generater";
 
 function BooksPage() {
   const { user } = useUser();
