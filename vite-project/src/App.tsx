@@ -10,23 +10,6 @@ import SignUpPage from './pages/auth-pages/Sign-up-page.tsx';
 import { ROUTES} from "./constants/Index.ts";
 import { useUser } from './constants/User-context.tsx';
 
-// const dummyBooks = [
-//   {
-//     id: "1",
-//     title: "Reactの基本",
-//     author: "田中 太郎",
-//     pagesRead: 120,
-//     totalPages: 300,
-//   },
-//   {
-//     id: "2",
-//     title: "TypeScript入門",
-//     author: "鈴木 花子",
-//     pagesRead: 300,
-//     totalPages: 300,
-//   },
-// ];
-
 function App() {
   const { user, loading } = useUser();
 
