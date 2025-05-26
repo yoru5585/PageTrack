@@ -1,15 +1,20 @@
 import { useEffect, useState, type ChangeEvent } from "react";
-import type { Book } from "../../constants/Types";
+import type { Book } from "../../constants/types";
 import { useUser } from "../../constants/User-context";
 import "./sidebar-styles/Books-page.css";
-import { addBookWithAutoId } from "./siderbar-components/books/add-book";
-import { fetchBooksByTitle, useBooks } from "./siderbar-components/books/fetch-books";
+import AddBookModalItem from "./siderbar-components/books/add-book-modal-item";
+import {
+  fetchBooksByTitle,
+  useBooks,
+} from "./siderbar-components/books/fetch-books";
+import Modal from "./siderbar-components/modal/Modal-generater";
 
 function BooksPage() {
   const { user } = useUser();
   const allBooks = useBooks(user);
   const [books, setBooks] = useState<Book[]>([]);
   const [searchTitle, setSearchTitle] = useState("");
+  const [isModalOpen, SetIsModalOpen] = useState(false);
 
   // 初回や user が変わったときにデフォルトの本をセット
   useEffect(() => {
@@ -26,25 +31,9 @@ function BooksPage() {
     </div>
   ));
 
-  const dummyBook: Book = {
-    id: "1",
-    title: "Reactの基本",
-    author: "田中 太郎",
-    pagesRead: 120,
-    totalPages: 300,
-  }
-
   const handleChangeSearchInput = (e: ChangeEvent<HTMLInputElement>) => {
     if (e.target.value == "") setBooks(allBooks);
     else setSearchTitle(e.target.value);
-  };
-
-  const handleAddBook = async () => {
-    try {
-      await addBookWithAutoId(dummyBook, user?.uid as string);
-    } catch (e) {
-      console.error(e);
-    }
   };
 
   const handleSearchByTitle = async () => {
@@ -60,15 +49,20 @@ function BooksPage() {
     <main>
       <div className="book-header">
         <p>選択中の本</p>
-        <button onClick={handleAddBook}>追加</button>
+        <button onClick={() => SetIsModalOpen(true)}>追加</button>
       </div>
       <div className="book-search">
-        <input type="search" placeholder="タイトル検索" onChange={handleChangeSearchInput} />
+        <input
+          type="search"
+          placeholder="タイトル検索"
+          onChange={handleChangeSearchInput}
+        />
         <button onClick={handleSearchByTitle}>検索</button>
       </div>
-      <div className="book-list">
-        {bookItems}
-      </div>
+      <div className="book-list">{bookItems}</div>
+      <Modal isOpen={isModalOpen} onClose={() => SetIsModalOpen(false)}>
+        <AddBookModalItem onClose={() => SetIsModalOpen(false)}/>
+      </Modal>
     </main>
   );
 }

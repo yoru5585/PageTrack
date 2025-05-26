@@ -1,7 +1,7 @@
 import type { User } from "firebase/auth";
 import { collection, getDocs, onSnapshot } from "firebase/firestore";
 import { useEffect, useState } from "react";
-import type { Book } from "../../../../constants/Types";
+import type { Book } from "../../../../constants/types";
 import { db } from "../../../../firebase";
 
 export const useBooks = (user: User | null) => {

@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import SignUp from "./auth-components/Sign-up";
-import { ROUTES } from "../../constants/Index.ts";
+import { ROUTES } from "../../constants/index.ts";
 
 export default function SignUpPage() {
   const [email, setEmail] = useState("");
