@@ -1,4 +1,4 @@
-export * from "./Routes";
-export * from "./Labels";
-export * from "./Colors";
+export * from "./routes";
+export * from "./labels";
+export * from "./colors";
 export * from "./types";

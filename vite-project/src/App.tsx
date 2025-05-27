@@ -4,7 +4,7 @@ import Layout from "./layout/layrout.tsx";
 import LoginPage from './pages/auth-pages/Login-page.tsx';
 import SignUpPage from './pages/auth-pages/Sign-up-page.tsx';
 import { ROUTES} from "./constants/index.ts";
-import { useUser } from './constants/User-context.tsx';
+import { useUser } from './constants/user-context.tsx';
 import HomePage from './pages/sidebar-pages/home-page.tsx';
 import StatsPage from './pages/sidebar-pages/stats-page.tsx';
 import BooksPage from './pages/sidebar-pages/books-page.tsx';

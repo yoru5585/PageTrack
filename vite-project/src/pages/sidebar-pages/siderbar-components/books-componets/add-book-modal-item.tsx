@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useUser } from "../../../../constants/User-context";
+import { useUser } from "../../../../constants/user-context";
 import { addBookWithAutoId } from "./add-book";
 
 type Props = {
@@ -12,7 +12,7 @@ function AddBookModalItem({ onClose }: Props) {
   const [totalPages, setTotalPages] = useState("");
 
   const AddBook = async () => {
-    if (title == "" || totalPages == "" || isNaN(parseInt(totalPages))) {
+    if (title === "" || totalPages === "" || isNaN(parseInt(totalPages))) {
       alert("入力内容を確認してください。");
       return;
     }

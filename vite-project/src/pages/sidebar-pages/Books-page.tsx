@@ -1,18 +1,22 @@
 import { useEffect, useState, type ChangeEvent } from "react";
 import type { Book } from "../../constants/types";
-import { useUser } from "../../constants/User-context";
+import { useUser } from "../../constants/user-context";
 import "./sidebar-styles/Books-page.css";
-import AddBookModalItem from "./siderbar-components/books/add-book-modal-item";
+import AddBookModalItem from "./siderbar-components/books-componets/add-book-modal-item";
 import {
   fetchBookById,
   fetchBooksByTitle,
   useBooks,
-} from "./siderbar-components/books/fetch-books";
+} from "./siderbar-components/books-componets/fetch-books";
 import Modal from "./siderbar-components/modal/modal-generater";
+import { useSelectedBook } from "../../constants/selectedBook-context";
+import BookInfoPanel from "./siderbar-components/books-componets/book-info-panel";
 
 function BooksPage() {
+  const { selectedBook, setSelectedBook } = useSelectedBook();
   const { user } = useUser();
   const allBooks = useBooks(user);
+
   const [books, setBooks] = useState<Book[]>([]);
   const [searchTitle, setSearchTitle] = useState("");
   const [isModalOpen, SetIsModalOpen] = useState(false);
@@ -25,14 +29,14 @@ function BooksPage() {
   const handleBookItemClick = async (bookId: string) => {
     try {
       const result = await fetchBookById(user, bookId);
-      console.log(result);
+      setSelectedBook(result);
     } catch (e) {
       console.error(e);
     }
   };
 
   const handleChangeSearchInput = (e: ChangeEvent<HTMLInputElement>) => {
-    if (e.target.value == "") setBooks(allBooks);
+    if (e.target.value === "") setBooks(allBooks);
     else setSearchTitle(e.target.value);
   };
 
@@ -46,7 +50,11 @@ function BooksPage() {
   };
 
   const bookItems = books.map((book) => (
-    <div key={book.id} className="book-card" onClick={() => handleBookItemClick(book.id)}>
+    <div
+      key={book.id}
+      className="book-card"
+      onClick={() => handleBookItemClick(book.id)}
+    >
       <h2 className="book-title">{book.title}</h2>
       <p className="book-author">著者: {book.author}</p>
       <p className="book-progress">
@@ -70,11 +78,7 @@ function BooksPage() {
       </div>
       <div className="book-list">{bookItems}</div>
       <div className="book-info">
-        <h3>タイトル</h3>
-        <p>著者</p>
-        <p>総ページ数</p>
-        <button>選択</button>
-        <button>編集</button>
+        <BookInfoPanel selectedBook={selectedBook}/>
       </div>
       <Modal isOpen={isModalOpen} onClose={() => SetIsModalOpen(false)}>
         <AddBookModalItem onClose={() => SetIsModalOpen(false)} />
