@@ -1,9 +1,12 @@
-import './App.css';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Layout from './pages/layout/layout.tsx';
-import { LoginPage, SignUpPage } from './pages/auth-pages';
 import { ROUTES, useUser } from './constants';
-import { HomePage, StatsPage, BooksPage, SettingsPage } from './pages/sidebar-pages';
+import SignUpPage from './pages/auth-pages/Sign-up-page.tsx';
+import LoginPage from './pages/auth-pages/Login-page.tsx';
+import HomePage from './pages/sidebar-pages/Home-page.tsx';
+import StatsPage from './pages/sidebar-pages/Stats-page.tsx';
+import BooksPage from './pages/sidebar-pages/Books-page.tsx';
+import SettingsPage from './pages/sidebar-pages/Settings-page.tsx';
 
 function App() {
   const { user, loading } = useUser();

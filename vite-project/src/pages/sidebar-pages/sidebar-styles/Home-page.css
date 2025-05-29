@@ -1,22 +1,28 @@
+.homepage-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+}
 
 .time {
-  border: 2px solid #1e293b;
-  border-radius: 4px;
+  grid-column: 1/3;
 }
 
 .points {
+  padding: 12px 0;
+  grid-column: 1 / 3;
+
   display: flex;
   flex-direction: row;
   justify-content: center;
-  gap: 24px;
-  width: 100vh;
-  height: 120px;
-  padding-top: 24px;
 }
 
 .total-books-point,
 .select-book-point {
   width: 50%;
-  border: 2px solid #1e293b;
-  border-radius: 4px;
+  height: 240px;
+  margin: 12px;
+  background-color: #f1f5f9; /* スレートグレー（明） */
+  border-radius: 12px; /* 角丸があると影が綺麗に見えます */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* 柔らかい影 */
 }

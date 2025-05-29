@@ -1,26 +1,32 @@
-import { useState } from "react";
-import "./sidebar-styles/Home-page.css";
+import { useState } from 'react';
+import './sidebar-styles/Home-page.css';
 
 function HomePage() {
   const [totalBooksPoint, setTotalBooksPoint] = useState(0);
 
   return (
-    <main>
+    <main className="homepage-container">
       <section className="time">
         <p>time</p>
       </section>
       <section className="points">
         <div className="total-books-point">
           <p>総獲得ポイント</p>
-          <p>{totalBooksPoint} P</p>
+          <div>
+            <h2>{totalBooksPoint} P</h2>
+          </div>
         </div>
         <div className="select-book-point">
-          <p>ここに今読んでる本のページ数</p>
-          <p>{totalBooksPoint} ページ</p>
+          <p>今読んでる本のタイトル</p>
+          <h2>{totalBooksPoint} / 100 ページ</h2>
+          <button
+            onClick={() => {
+              setTotalBooksPoint((prev) => prev + 1);
+            }}
+          >
+            読んだページを記録する
+          </button>
         </div>
-      </section>
-      <section className="">
-        <button onClick={() => {setTotalBooksPoint(totalBooksPoint + 1)}}>ページ数追加</button>
       </section>
     </main>
   );

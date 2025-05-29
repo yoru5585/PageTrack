@@ -1,8 +1,8 @@
-import { Outlet, NavLink } from 'react-router-dom';
-import { Home, Search, BarChart2, Settings, X, Menu } from 'lucide-react';
-import './layout.css';
+import { BarChart2, Home, Menu, Search, Settings, X } from 'lucide-react';
 import { useState } from 'react';
-import { ROUTES, LABELS, SelectedBookProvider } from '../../constants';
+import { NavLink, Outlet } from 'react-router-dom';
+import { LABELS, ROUTES, SelectedBookProvider } from '../../constants';
+import './layout.css';
 
 function Layout() {
   const [sidebarOpen, setSidebarOpen] = useState(true);
@@ -19,7 +19,7 @@ function Layout() {
   ];
 
   return (
-    <div className="layout-container">
+    <div>
       {/* 表示ボタン */}
       <button
         className="open-btn"
@@ -56,7 +56,6 @@ function Layout() {
         <footer className="sidebar-footer">© 2025 ka-shimizu</footer>
       </aside>
 
-      {/* メインコンテンツ */}
       <main className="main-content">
         <SelectedBookProvider>
           <Outlet />

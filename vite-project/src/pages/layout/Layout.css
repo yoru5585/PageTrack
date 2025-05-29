@@ -1,9 +1,3 @@
-.layout-container {
-  position: relative;
-  margin: auto;
-  font-family: sans-serif;
-}
-
 /* サイドバーを画面に固定 */
 .sidebar {
   position: fixed;
@@ -106,4 +100,6 @@
   background-color: #f1f5f9; /* スレートグレー（明） */
   border-radius: 12px; /* 角丸があると影が綺麗に見えます */
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* 柔らかい影 */
+
+  margin: 0 auto;
 }
