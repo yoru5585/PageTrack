@@ -1,5 +1,5 @@
 import { createContext, useContext, useState, type ReactNode } from "react";
-import type { Book } from "../constants";
+import type { Book } from ".";
 
 type SelectedBookContextType = {
   selectedBook: Book | null;

@@ -9,7 +9,7 @@ import {
   useBooks,
 } from "./siderbar-components/books-componets/fetch-books";
 import Modal from "./siderbar-components/modal/modal-generater";
-import { useSelectedBook } from "../../constants/selectedBook-context";
+import { useSelectedBook } from "../../constants/SelectedBook-context";
 import BookInfoPanel from "./siderbar-components/books-componets/book-info-panel";
 
 function BooksPage() {

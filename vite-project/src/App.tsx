@@ -1,29 +1,25 @@
-import './App.css'
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import Layout from "./layout/layrout.tsx";
-import LoginPage from './pages/auth-pages/Login-page.tsx';
-import SignUpPage from './pages/auth-pages/Sign-up-page.tsx';
-import { ROUTES} from "./constants/index.ts";
-import { useUser } from './constants/user-context.tsx';
-import HomePage from './pages/sidebar-pages/home-page.tsx';
-import StatsPage from './pages/sidebar-pages/stats-page.tsx';
-import BooksPage from './pages/sidebar-pages/books-page.tsx';
-import SettingsPage from './pages/sidebar-pages/settings-page.tsx';
+import './App.css';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import Layout from './pages/layout/layout.tsx';
+import { LoginPage, SignUpPage } from './pages/auth-pages';
+import { ROUTES, useUser } from './constants';
+import { HomePage, StatsPage, BooksPage, SettingsPage } from './pages/sidebar-pages';
 
 function App() {
   const { user, loading } = useUser();
 
   if (loading) return <div>Loading...</div>;
 
-  if (!user) return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="*" element={<Navigate to={ROUTES.LOGIN} replace />} />
-        <Route path={ROUTES.LOGIN} element={<LoginPage />} />
-        <Route path={ROUTES.SIGNUP} element={<SignUpPage />} />
-      </Routes>
-    </BrowserRouter>
-  );
+  if (!user)
+    return (
+      <BrowserRouter>
+        <Routes>
+          <Route path="*" element={<Navigate to={ROUTES.LOGIN} replace />} />
+          <Route path={ROUTES.LOGIN} element={<LoginPage />} />
+          <Route path={ROUTES.SIGNUP} element={<SignUpPage />} />
+        </Routes>
+      </BrowserRouter>
+    );
 
   return (
     <BrowserRouter>
@@ -40,4 +36,4 @@ function App() {
   );
 }
 
-export default App
+export default App;

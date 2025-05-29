@@ -1,9 +1,8 @@
-import { Outlet, NavLink } from "react-router-dom";
-import { Home, Search, BarChart2, Settings, X, Menu } from "lucide-react";
-import "./layout.css";
-import { useState } from "react";
-import { ROUTES, LABELS } from "../constants/index.ts";
-import { SelectedBookProvider } from "../constants/selectedBook-context.tsx";
+import { Outlet, NavLink } from 'react-router-dom';
+import { Home, Search, BarChart2, Settings, X, Menu } from 'lucide-react';
+import './layout.css';
+import { useState } from 'react';
+import { ROUTES, LABELS, SelectedBookProvider } from '../../constants';
 
 function Layout() {
   const [sidebarOpen, setSidebarOpen] = useState(true);
@@ -31,7 +30,7 @@ function Layout() {
         <Menu size={20} />
       </button>
       {/* サイドバー */}
-      <aside className={`sidebar ${sidebarOpen ? "open" : "closed"}`}>
+      <aside className={`sidebar ${sidebarOpen ? 'open' : 'closed'}`}>
         {/* 非表示ボタン */}
         <button
           className="close-btn"
