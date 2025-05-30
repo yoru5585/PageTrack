@@ -1,6 +1,6 @@
-import { useState } from "react";
-import { useUser } from "../../../../constants/user-context";
-import { addBookWithAutoId } from "./add-book";
+import { useState } from 'react';
+import { useUser } from '../../../../hooks/UserProvider';
+import { addBookWithAutoId } from './add-book';
 
 type Props = {
   onClose: () => void;
@@ -8,21 +8,21 @@ type Props = {
 
 function AddBookModalItem({ onClose }: Props) {
   const { user } = useUser();
-  const [title, setTitle] = useState("");
-  const [totalPages, setTotalPages] = useState("");
+  const [title, setTitle] = useState('');
+  const [totalPages, setTotalPages] = useState('');
 
   const AddBook = async () => {
-    if (title === "" || totalPages === "" || isNaN(parseInt(totalPages))) {
-      alert("入力内容を確認してください。");
+    if (title === '' || totalPages === '' || isNaN(parseInt(totalPages))) {
+      alert('入力内容を確認してください。');
       return;
     }
 
     try {
       await addBookWithAutoId(
         {
-          id: "",
+          id: '',
           title: title,
-          author: "",
+          author: '',
           pagesRead: 0,
           totalPages: parseInt(totalPages),
         },

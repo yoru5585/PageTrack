@@ -1,12 +1,13 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import Layout from './pages/layout/layout.tsx';
-import { ROUTES, useUser } from './constants';
-import SignUpPage from './pages/auth-pages/Sign-up-page.tsx';
-import LoginPage from './pages/auth-pages/Login-page.tsx';
-import HomePage from './pages/sidebar-pages/Home-page.tsx';
-import StatsPage from './pages/sidebar-pages/Stats-page.tsx';
-import BooksPage from './pages/sidebar-pages/Books-page.tsx';
-import SettingsPage from './pages/sidebar-pages/Settings-page.tsx';
+import Layout from './features/layout/layout.tsx';
+import { ROUTES } from './constants';
+import SignUpPage from './features/authentication/Sign-up-page.tsx';
+import LoginPage from './features/authentication/Login-page.tsx';
+import HomePage from './features/homePage/Home-page.tsx';
+import BooksPage from './features/bookPage/Books-page.tsx';
+import StatsPage from './features/statsPage/Stats-page.tsx';
+import SettingsPage from './features/settingPage/Settings-page.tsx';
+import { useUser } from './hooks/UserProvider.tsx';
 
 function App() {
   const { user, loading } = useUser();

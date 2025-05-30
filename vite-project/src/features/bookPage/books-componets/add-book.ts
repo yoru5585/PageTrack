@@ -1,11 +1,11 @@
-import { collection, addDoc } from "firebase/firestore";
-import { db } from "../../../../firebase";
-import type { Book } from "../../../../constants/types";
+import { collection, addDoc } from 'firebase/firestore';
+import { db } from '../../../../firebase';
+import type { Book } from '../../../../constants';
 
 export const addBookWithAutoId = async (bookData: Book, userId: string) => {
   if (!bookData || !userId) return;
-  
-  const booksCollectionRef = collection(db, "users", userId, "books");
+
+  const booksCollectionRef = collection(db, 'users', userId, 'books');
   const newDocRef = await addDoc(booksCollectionRef, {
     title: bookData.title,
     pagesRead: bookData.pagesRead,
@@ -13,5 +13,5 @@ export const addBookWithAutoId = async (bookData: Book, userId: string) => {
     createdAt: new Date(),
   });
 
-  console.log("追加された book ID:", newDocRef.id);
+  console.log('追加された book ID:', newDocRef.id);
 };

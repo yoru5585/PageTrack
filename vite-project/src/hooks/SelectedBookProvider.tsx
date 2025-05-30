@@ -1,5 +1,5 @@
-import { createContext, useContext, useState, type ReactNode } from "react";
-import type { Book } from ".";
+import { createContext, useContext, useState, type ReactNode } from 'react';
+import type { Book } from '../constants';
 
 type SelectedBookContextType = {
   selectedBook: Book | null;
@@ -21,7 +21,7 @@ export const SelectedBookProvider = ({ children }: { children: ReactNode }) => {
 export const useSelectedBook = () => {
   const context = useContext(SelectedBookContext);
   if (!context) {
-    throw new Error("useSelectedBook must be used within a SelectedBookProvider");
+    throw new Error('useSelectedBook must be used within a SelectedBookProvider');
   }
   return context;
 };

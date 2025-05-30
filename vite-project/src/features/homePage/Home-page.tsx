@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './sidebar-styles/Home-page.css';
+import ClockApp from '../clock/App';
 
 function HomePage() {
   const [totalBooksPoint, setTotalBooksPoint] = useState(0);
@@ -7,7 +8,7 @@ function HomePage() {
   return (
     <main className="homepage-container">
       <section className="time">
-        <p>time</p>
+        <ClockApp />
       </section>
       <section className="points">
         <div className="total-books-point">
