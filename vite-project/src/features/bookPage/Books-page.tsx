@@ -1,15 +1,14 @@
 import { useEffect, useState, type ChangeEvent } from 'react';
-import { useUser, type Book } from '../../constants';
-import './sidebar-styles/Books-page.css';
-import AddBookModalItem from '../../pages/sidebar-pages/siderbar-components/books-componets/add-book-modal-item';
+import type { Book } from '../../constants';
+import { useSelectedBook, useUser } from '../../hooks';
+import Modal from '../modal/modal-generater';
 import {
   fetchBookById,
   fetchBooksByTitle,
   useBooks,
-} from '../../pages/sidebar-pages/siderbar-components/books-componets/fetch-books';
-import Modal from '../modal/modal-generater';
-import { useSelectedBook } from '../../hooks/SelectedBookProvider';
-import BookInfoPanel from '../../pages/sidebar-pages/siderbar-components/books-componets/book-info-panel';
+  AddBookModalItem,
+  BookInfoPanel,
+} from './books-components';
 
 function BooksPage() {
   const { selectedBook, setSelectedBook } = useSelectedBook();

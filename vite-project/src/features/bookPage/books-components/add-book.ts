@@ -1,6 +1,6 @@
 import { collection, addDoc } from 'firebase/firestore';
-import { db } from '../../../../firebase';
-import type { Book } from '../../../../constants';
+import type { Book } from '../../../constants';
+import { db } from '../../../firebase';
 
 export const addBookWithAutoId = async (bookData: Book, userId: string) => {
   if (!bookData || !userId) return;

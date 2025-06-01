@@ -1,8 +1,9 @@
 import { BarChart2, Home, Menu, Search, Settings, X } from 'lucide-react';
 import { useState } from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
-import { LABELS, ROUTES, SelectedBookProvider } from '../../constants';
+import { LABELS, ROUTES } from '../../constants';
 import './layout.css';
+import { SelectedBookProvider } from '../../hooks';
 
 function Layout() {
   const [sidebarOpen, setSidebarOpen] = useState(true);

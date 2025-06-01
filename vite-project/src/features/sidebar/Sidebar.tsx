@@ -1,5 +1,5 @@
 import { Outlet } from 'react-router-dom';
-import { SelectedBookProvider } from '../../constants';
+import { SelectedBookProvider } from '../../hooks';
 
 const Sidebar = () => {
   return (

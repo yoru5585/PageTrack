@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import './sidebar-styles/Home-page.css';
+import './Home-page.css';
 import ClockApp from '../clock/App';
 
 function HomePage() {

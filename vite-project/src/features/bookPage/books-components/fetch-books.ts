@@ -1,8 +1,8 @@
 import type { User } from 'firebase/auth';
 import { collection, doc, getDoc, getDocs, onSnapshot } from 'firebase/firestore';
 import { useEffect, useState } from 'react';
-import type { Book } from '../../../../constants';
-import { db } from '../../../../firebase';
+import type { Book } from '../../../constants';
+import { db } from '../../../firebase';
 
 export const useBooks = (user: User | null) => {
   const [books, setBooks] = useState<Book[]>([]);
