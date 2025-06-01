@@ -28,7 +28,7 @@ const SClockBoard = styled.div`
   position: relative;
   &:before {
     content: '';
-    diplay: block;
+    display: block;
     width: 5px;
     height: 5px;
     border-radius: 100%;
