@@ -9,6 +9,7 @@ import {
   AddBookModalItem,
   BookInfoPanel,
 } from './books-components';
+import './Books-page.css';
 
 function BooksPage() {
   const { selectedBook, setSelectedBook } = useSelectedBook();
@@ -58,22 +59,25 @@ function BooksPage() {
   ));
 
   return (
-    <main>
-      <div className="book-add">
-        <button onClick={() => SetIsModalOpen(true)}>追加</button>
+    <>
+      <div>
+        <div className="book-search">
+          <input type="search" placeholder="タイトル検索" onChange={handleChangeSearchInput} />
+          <button onClick={handleSearchByTitle}>検索</button>
+        </div>
+        <div className="book-list">{bookItems}</div>
+        <div className="book-add">
+          <button onClick={() => SetIsModalOpen(true)}>追加</button>
+        </div>
       </div>
-      <div className="book-search">
-        <input type="search" placeholder="タイトル検索" onChange={handleChangeSearchInput} />
-        <button onClick={handleSearchByTitle}>検索</button>
-      </div>
-      <div className="book-list">{bookItems}</div>
+
       <div className="book-info">
         <BookInfoPanel selectedBook={selectedBook} />
+        <Modal isOpen={isModalOpen} onClose={() => SetIsModalOpen(false)}>
+          <AddBookModalItem onClose={() => SetIsModalOpen(false)} />
+        </Modal>
       </div>
-      <Modal isOpen={isModalOpen} onClose={() => SetIsModalOpen(false)}>
-        <AddBookModalItem onClose={() => SetIsModalOpen(false)} />
-      </Modal>
-    </main>
+    </>
   );
 }
 

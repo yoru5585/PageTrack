@@ -21,6 +21,7 @@ const AnalogClock: React.VFC<ClockNum> = ({ time }) => {
 };
 
 const SClockBoard = styled.div`
+  margin-top: 24px;
   width: 400px;
   height: 400px;
   border: 1px solid #ffffff;

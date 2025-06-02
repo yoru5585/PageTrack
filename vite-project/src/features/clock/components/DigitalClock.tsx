@@ -9,7 +9,7 @@ const DigitalClock: React.VFC<ClockNum> = ({ time }) => {
 const SClockText = styled.div`
   font-size: 50px;
   color: #ffffff;
-  margin-top: 100px;
+  margin-top: 40px;
 `;
 
 export default DigitalClock;
